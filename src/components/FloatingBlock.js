@@ -7,16 +7,20 @@ class FloatingBlock extends React.Component {
         style={{
           backgroundColor: "rgb(0,0,0,0.8)",
           display: this.props.visible ? "flex" : "none",
-          position: 'fixed',
-          height: '100vh',
-          width: '100vw',
+          position: "fixed",
+          height: "100vh",
+          width: "100vw",
           top: 0,
           left: 0,
-          zIndex: '9999999'
+          zIndex: "9999999",
         }}
-        className="uk-flex uk-flex-center uk-flex-middle"
+        className='uk-flex uk-flex-center uk-flex-middle'
       >
-        <div>{this.props.component}</div>
+        {this.props.isCode === true ? (
+        <div style={{ width: "70%", height: "80%", backgroundColor: "#222" }}>
+          {this.props.component}
+        </div>
+        ) : (<div>{this.props.component}</div>)}
       </div>
     )
   }
