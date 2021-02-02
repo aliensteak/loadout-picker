@@ -17,7 +17,7 @@ class FloatingBlock extends React.Component {
         className='uk-flex uk-flex-center uk-flex-middle'
       >
         {this.props.isCode === true ? (
-        <div style={{ width: "70%", height: "80%", backgroundColor: "#222" }}>
+        <div style={{ width: "70%", height: "80%", backgroundColor: "#222", overflow: 'scroll' }}>
           {this.props.component}
         </div>
         ) : (<div>{this.props.component}</div>)}

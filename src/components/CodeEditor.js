@@ -2,6 +2,9 @@ import React from "react"
 import Editor from "react-simple-code-editor"
 import Prism from "prismjs"
 import FloatingBlock from "./FloatingBlock"
+import sqfGrammar from './AddSqf'
+
+import "./prism.css"
 
 class CodeEditor extends React.Component {
   constructor() {
@@ -14,6 +17,7 @@ class CodeEditor extends React.Component {
 
     this.colorPicked = this.colorPicked.bind(this)
   }
+
 
   colorPicked(color, event) {
     this.setState({ selectedColor: color.hex })
@@ -48,15 +52,14 @@ class CodeEditor extends React.Component {
             <Editor
               value={this.state.code}
               onValueChange={(code) => this.setState({ code })}
-              highlight={(code) => Prism.highlight(code, Prism.languages.js)}
+              highlight={(code) => Prism.highlight(code, sqfGrammar)}
               padding={10}
               insertSpaces={true}
               style={{
                 fontFamily:
                   "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
-                fontSize: 12
+                fontSize: 16,
               }}
-              textareaClassName="code-area"
             />
           }
         />
