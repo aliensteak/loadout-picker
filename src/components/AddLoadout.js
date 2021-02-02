@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ProjectName extends React.Component {
+class AddLoadout extends React.Component {
   constructor() {
     super()
 
@@ -16,13 +16,12 @@ class ProjectName extends React.Component {
       <div class="uk-card uk-card-default uk-width-expand uk-margin-bottom">
         <div class="uk-card-header">
           <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom">Project Name</h3>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Add Loadouts</h3>
           </div>
         </div>
         <div class="uk-card-body">
-          <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="Project Name" name="projectName" onChange={this.handleChange} />
-            <small>This name will be used to create the name of the sqf file</small>
+          <div class="uk-margin uk-text-center">
+            <button class="uk-button uk-button-primary">Add Loadout</button>
           </div>
         </div>
       </div>
@@ -30,4 +29,4 @@ class ProjectName extends React.Component {
   }
 }
 
-export default ProjectName
+export default AddLoadout

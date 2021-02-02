@@ -1,4 +1,5 @@
 import React from 'react'
+import AddLoadout from './AddLoadout'
 import ProjectName from './ProjectName'
 class App extends React.Component {
   constructor() {
@@ -19,7 +20,8 @@ class App extends React.Component {
     return (
       <div className="uk-container-large uk-padding-large">
         <ProjectName setParentState={this.setParentState} />
-        {this.state.projectName}
+
+        <AddLoadout />
       </div>
     )
   }
