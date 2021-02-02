@@ -1,4 +1,5 @@
 import React from "react"
+import ColorPicker from "./ColorPicker"
 
 class LoadoutInput extends React.Component {
   constructor() {
@@ -23,6 +24,8 @@ class LoadoutInput extends React.Component {
           <div className="uk-width-1-3">
             <div className="uk-background-default uk-margin-small-right uk-padding-small uk-flex">
               <label className="uk-text-bold">Color</label>
+
+              <ColorPicker />
             </div>
           </div>
 
