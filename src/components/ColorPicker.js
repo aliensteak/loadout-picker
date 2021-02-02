@@ -7,15 +7,26 @@ class ColorPicker extends React.Component {
     super()
 
     this.state = {
+      prevColor: "#ffffff",
       selectedColor: "#ffffff",
       colorPickerVisible: false,
     }
 
     this.colorPicked = this.colorPicked.bind(this)
+    this.cancelClickHandler = this.cancelClickHandler.bind(this)
   }
 
   colorPicked(color, event) {
     this.setState({ selectedColor: color.hex })
+  }
+
+  cancelClickHandler() {
+    this.setState((prevState) => {
+      return {
+        colorPickerVisible: false,
+        selectedColor: prevState.prevColor
+      }
+    })
   }
 
   render() {
@@ -45,8 +56,8 @@ class ColorPicker extends React.Component {
           component={
             <PhotoshopPicker
               color={this.state.selectedColor}
-              onAccept={() => this.setState({ colorPickerVisible: false })}
-              onCancel={() => this.setState({ colorPickerVisible: false })}
+              onAccept={() => this.setState({ colorPickerVisible: false, prevColor: this.state.selectedColor })}
+              onCancel={this.cancelClickHandler}
               onChange={this.colorPicked}
             />
           }

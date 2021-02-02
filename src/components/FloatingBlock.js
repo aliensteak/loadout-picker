@@ -5,13 +5,14 @@ class FloatingBlock extends React.Component {
     return (
       <div
         style={{
-          backgroundColor: "rgb(0,0,0,0.5)",
+          backgroundColor: "rgb(0,0,0,0.8)",
           display: this.props.visible ? "flex" : "none",
           position: 'fixed',
           height: '100vh',
           width: '100vw',
           top: 0,
           left: 0,
+          zIndex: '9999999'
         }}
         className="uk-flex uk-flex-center uk-flex-middle"
       >
