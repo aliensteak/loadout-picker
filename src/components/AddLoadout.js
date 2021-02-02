@@ -13,15 +13,15 @@ class AddLoadout extends React.Component {
 
   render() {
     return (
-      <div class="uk-card uk-card-default uk-width-expand uk-margin-bottom">
-        <div class="uk-card-header">
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom">Add Loadouts</h3>
+      <div className="uk-card uk-card-default uk-width-expand uk-margin-bottom">
+        <div className="uk-card-header">
+          <div className="uk-width-expand">
+            <h3 className="uk-card-title uk-margin-remove-bottom">Add Loadouts</h3>
           </div>
         </div>
-        <div class="uk-card-body">
-          <div class="uk-margin uk-text-center">
-            <button class="uk-button uk-button-primary">Add Loadout</button>
+        <div className="uk-card-body">
+          <div className="uk-margin uk-text-center">
+            <button className="uk-button uk-button-primary">Add Loadout</button>
           </div>
         </div>
       </div>

@@ -13,15 +13,15 @@ class ProjectName extends React.Component {
 
   render() {
     return (
-      <div class="uk-card uk-card-default uk-width-expand uk-margin-bottom">
-        <div class="uk-card-header">
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom">Project Name</h3>
+      <div className="uk-card uk-card-default uk-width-expand uk-margin-bottom">
+        <div className="uk-card-header">
+          <div className="uk-width-expand">
+            <h3 className="uk-card-title uk-margin-remove-bottom">Project Name</h3>
           </div>
         </div>
-        <div class="uk-card-body">
-          <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="Project Name" name="projectName" onChange={this.handleChange} />
+        <div className="uk-card-body">
+          <div className="uk-margin">
+            <input className="uk-input" type="text" placeholder="Project Name" name="projectName" onChange={this.handleChange} />
             <small>This name will be used to create the name of the sqf file</small>
           </div>
         </div>

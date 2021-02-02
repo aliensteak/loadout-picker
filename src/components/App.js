@@ -6,14 +6,24 @@ class App extends React.Component {
     super()
 
     this.state = {
-      projectName: ""
+      projectName: "",
+      loadouts: null
     }
 
     this.setParentState = this.setParentState.bind(this)
+    this.addLoadoutClickHandler = this.addLoadoutClickHandler.bind(this)
   }
 
   setParentState(property, value) {
     this.setState({ [property]: value })
+  }
+
+  addLoadoutClickHandler() {
+    const loadout = <AddLoadout />
+
+    this.setState((prevState) => {
+      return { loadouts : { ...prevState.loadouts, loadout } }
+    })
   }
 
   render() {
@@ -21,7 +31,8 @@ class App extends React.Component {
       <div className="uk-container-large uk-padding-large">
         <ProjectName setParentState={this.setParentState} />
 
-        <AddLoadout />
+        <div>{this.state.loadouts}</div>
+        <AddLoadout addLoadoutClickHandler={this.addLoadoutClickHandler} />
       </div>
     )
   }
