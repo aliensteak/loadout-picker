@@ -1,14 +1,28 @@
 import React from 'react'
 
+import LoadoutInput from './LoadoutInput'
+
 class AddLoadout extends React.Component {
   constructor() {
     super()
 
+    this.state = {
+      id: 0,
+      loadouts: [<LoadoutInput key={new Date().getTime()} />]
+    }
+
     this.handleChange = this.handleChange.bind(this)
+    this.addLoadoutClickHandler = this.addLoadoutClickHandler.bind(this)
   }
 
   handleChange(event) {
     this.props.setParentState(event.target.name, event.target.value)
+  }
+
+  addLoadoutClickHandler() {
+    this.setState((prevState) => {
+      return { loadouts : [ ...prevState.loadouts, <LoadoutInput key={new Date().getTime()} /> ] }
+    })
   }
 
   render() {
@@ -20,8 +34,10 @@ class AddLoadout extends React.Component {
           </div>
         </div>
         <div className="uk-card-body">
+          <div>{this.state.loadouts}</div>
+
           <div className="uk-margin uk-text-center">
-            <button className="uk-button uk-button-primary">Add Loadout</button>
+            <button className="uk-button uk-button-primary" onClick={this.addLoadoutClickHandler}>Add Loadout</button>
           </div>
         </div>
       </div>
