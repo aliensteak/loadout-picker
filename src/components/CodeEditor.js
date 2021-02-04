@@ -7,12 +7,12 @@ import sqfGrammar from './AddSqf'
 import "./prism.css"
 
 class CodeEditor extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      code: "#ffffff",
-      codeEditorVisible: true,
+      code: "",
+      codeEditorVisible: false,
     }
 
     this.colorPicked = this.colorPicked.bind(this)

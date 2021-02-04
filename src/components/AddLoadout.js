@@ -21,7 +21,8 @@ class AddLoadout extends React.Component {
 
   addLoadoutClickHandler() {
     this.setState((prevState) => {
-      return { loadouts : [ ...prevState.loadouts, <LoadoutInput key={new Date().getTime()} /> ] }
+      const id = new Date().getTime()
+      return { loadouts : [ ...prevState.loadouts, <LoadoutInput id={id} key={id} /> ] }
     })
   }
 
