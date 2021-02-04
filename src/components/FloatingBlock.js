@@ -25,7 +25,6 @@ class FloatingBlock extends React.Component {
           zIndex: "9999999",
         }}
         className='uk-flex uk-flex-center uk-flex-middle uk-flex-column'
-        onClick={this.closeClickHandler}
       >
         {this.props.isCode === true ? (
         <div style={{ width: "70%", height: "80%", backgroundColor: "#222", overflow: 'scroll' }}>

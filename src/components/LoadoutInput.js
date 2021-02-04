@@ -16,7 +16,7 @@ class LoadoutInput extends React.Component {
   }
 
   loadoutDeleteClickHandler() {
-    // this.props.deleteLoadout(this.state.id)
+    this.props.deleteLoadout(this.state.id)
   }
 
   render() {
