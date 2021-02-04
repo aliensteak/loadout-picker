@@ -13,6 +13,7 @@ class AddLoadout extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.addLoadoutClickHandler = this.addLoadoutClickHandler.bind(this)
+    this.deleteLoadout = this.deleteLoadout.bind(this)
   }
 
   handleChange(event) {
@@ -22,8 +23,13 @@ class AddLoadout extends React.Component {
   addLoadoutClickHandler() {
     this.setState((prevState) => {
       const id = new Date().getTime()
-      return { loadouts : [ ...prevState.loadouts, <LoadoutInput id={id} key={id} /> ] }
+      return { loadouts : [ ...prevState.loadouts, <LoadoutInput key={id} id={id} deleteLoadout={this.deleteLoadout} /> ] }
     })
+  }
+
+  deleteLoadout(id) {
+    console.log('id: ', id);
+
   }
 
   render() {

@@ -11,6 +11,12 @@ class LoadoutInput extends React.Component {
       loadoutCode: "",
       color: ""
     }
+
+    this.loadoutDeleteClickHandler = this.loadoutDeleteClickHandler.bind(this)
+  }
+
+  loadoutDeleteClickHandler() {
+    // this.props.deleteLoadout(this.state.id)
   }
 
   render() {
@@ -40,7 +46,7 @@ class LoadoutInput extends React.Component {
           </div>
 
           <div className="uk-width-auto uk-margin-auto-left uk-flex uk-flex-center uk-flex-middle">
-            <span uk-icon="icon: close; ratio: 1"></span>
+            <span uk-icon="icon: close; ratio: 1" onClick={this.loadoutDeleteClickHandler} className="close-icon" />
           </div>
         </div>
       </div>

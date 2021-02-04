@@ -12,3 +12,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.close-icon {
+  padding: 5px;
+
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
+.close-icon:hover {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.close-icon:active {
+  background-color: rgb(10, 10, 10, 0.1);
+  border-radius: 25px;
+
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
