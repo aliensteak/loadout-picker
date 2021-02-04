@@ -31,7 +31,7 @@ class LoadoutInput extends React.Component {
 
   render() {
     return (
-      <div className="uk-alert">
+      <div className="uk-card uk-card-default uk-padding-small uk-padding-remove-vertical uk-padding-remove-left uk-margin-medium-bottom">
         <div className="uk-flex-inline uk-width-expand uk-flex-middle" style={{ alignItems: 'stretch' }}>
           <div className="uk-width-2-3">
             <div className="uk-background-default uk-margin-small-right uk-padding-small uk-flex">
