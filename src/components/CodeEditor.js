@@ -54,8 +54,7 @@ class CodeEditor extends React.Component {
               style={{
                 fontFamily:
                   "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
-                fontSize: 16,
-                height: '100%'
+                fontSize: 16
               }}
             />
           }

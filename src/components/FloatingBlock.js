@@ -7,6 +7,15 @@ class FloatingBlock extends React.Component {
     this.closeClickHandler = this.closeClickHandler.bind(this)
   }
 
+  onClickEventHandler(event) {
+    const textArea = document.getElementsByClassName("npm__react-simple-code-editor__textarea")
+    event.stopPropagation()
+
+    if (textArea[0]) {
+      textArea[0].focus()
+    }
+  }
+
   closeClickHandler() {
     this.props.closeEditorSelectorClickHandler()
   }
@@ -25,6 +34,7 @@ class FloatingBlock extends React.Component {
           zIndex: "9999999",
         }}
         className='uk-flex uk-flex-center uk-flex-middle uk-flex-column'
+        onClick={this.onClickEventHandler}
       >
         {this.props.isCode === true ? (
         <div style={{ width: "70%", height: "80%", backgroundColor: "#222", overflowY: 'scroll' }}>
