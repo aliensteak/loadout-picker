@@ -19,6 +19,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="uk-container-large uk-padding-large">
+        <div className="uk-alert-warning uk-padding-small uk-margin-medium-bottom uk-text-center" style={{ border: '1px solid orange' }}>
+          NOTE: This project is currently WIP
+        </div>
+
         <ProjectName setParentState={this.setParentState} />
 
         <AddLoadout />
