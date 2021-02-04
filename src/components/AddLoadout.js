@@ -6,22 +6,23 @@ class AddLoadout extends React.Component {
   constructor() {
     super()
 
-    const id = new Date().getTime()
-    this.deleteLoadout = this.deleteLoadout.bind(this)
-
     this.state = {
-      id: 0,
-      loadouts: [
-        <LoadoutInput key={id} id={id} deleteLoadout={this.deleteLoadout} />,
-      ],
+      defaultColor: "#ffffff",
+      loadouts: [],
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.addLoadoutClickHandler = this.addLoadoutClickHandler.bind(this)
+    this.setParentState = this.setParentState.bind(this)
+    this.deleteLoadout = this.deleteLoadout.bind(this)
   }
 
   handleChange(event) {
     this.props.setParentState(event.target.name, event.target.value)
+  }
+
+  setParentState(name, value) {
+    this.setState({ [name]: value })
   }
 
   deleteLoadout(id) {
@@ -40,7 +41,13 @@ class AddLoadout extends React.Component {
       return {
         loadouts: [
           ...prevState.loadouts,
-          <LoadoutInput key={id} id={id} deleteLoadout={this.deleteLoadout} />,
+          <LoadoutInput
+            key={id}
+            id={id}
+            deleteLoadout={this.deleteLoadout}
+            setParentState={this.setParentState}
+            defaultColor={prevState.defaultColor}
+          />,
         ],
       }
     })

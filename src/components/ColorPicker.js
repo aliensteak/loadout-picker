@@ -3,12 +3,12 @@ import { PhotoshopPicker } from "react-color"
 import FloatingBlock from "./FloatingBlock"
 
 class ColorPicker extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      prevColor: "#ffffff",
-      selectedColor: "#ffffff",
+      prevColor: this.props.defaultColor,
+      selectedColor: this.props.defaultColor,
       colorPickerVisible: false,
     }
 
@@ -23,6 +23,8 @@ class ColorPicker extends React.Component {
 
   colorPicked(color, event) {
     this.setState({ selectedColor: color.hex })
+
+    this.props.setParentState('color', color.hex)
   }
 
   cancelClickHandler() {

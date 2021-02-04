@@ -9,10 +9,20 @@ class LoadoutInput extends React.Component {
     this.state = {
       id: this.props.id,
       loadoutCode: "",
-      color: ""
+      color: this.props.defaultColor
     }
 
+    this.setParentState = this.setParentState.bind(this)
     this.loadoutDeleteClickHandler = this.loadoutDeleteClickHandler.bind(this)
+  }
+
+  setParentState(name, value) {
+    this.setState({ [name]: value })
+
+    // special case to edit default color value
+    if (name === 'color') {
+      this.props.setParentState('defaultColor', value)
+    }
   }
 
   loadoutDeleteClickHandler() {
@@ -41,7 +51,7 @@ class LoadoutInput extends React.Component {
             <div className="uk-background-default uk-margin-small-right uk-padding-small uk-flex uk-height-1-1 uk-flex-middle">
               <label className="uk-text-bold">Color</label>
 
-              <ColorPicker />
+              <ColorPicker defaultColor={this.state.color} setParentState={this.setParentState} />
             </div>
           </div>
 
