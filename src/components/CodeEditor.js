@@ -16,8 +16,12 @@ class CodeEditor extends React.Component {
     }
 
     this.colorPicked = this.colorPicked.bind(this)
+    this.closeEditorSelectorClickHandler = this.closeEditorSelectorClickHandler.bind(this)
   }
 
+  closeEditorSelectorClickHandler() {
+    this.setState({ codeEditorVisible: false })
+  }
 
   colorPicked(color, event) {
     this.setState({ selectedColor: color.hex })
@@ -48,6 +52,7 @@ class CodeEditor extends React.Component {
         <FloatingBlock
           visible={this.state.codeEditorVisible}
           isCode={true}
+          closeEditorSelectorClickHandler={this.closeEditorSelectorClickHandler}
           component={
             <Editor
               value={this.state.code}

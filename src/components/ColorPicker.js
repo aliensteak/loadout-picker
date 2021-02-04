@@ -14,6 +14,11 @@ class ColorPicker extends React.Component {
 
     this.colorPicked = this.colorPicked.bind(this)
     this.cancelClickHandler = this.cancelClickHandler.bind(this)
+    this.closeEditorSelectorClickHandler = this.closeEditorSelectorClickHandler.bind(this)
+  }
+
+  closeEditorSelectorClickHandler() {
+    this.setState({ colorPickerVisible: false })
   }
 
   colorPicked(color, event) {
@@ -53,6 +58,7 @@ class ColorPicker extends React.Component {
 
         <FloatingBlock
           visible={this.state.colorPickerVisible}
+          closeEditorSelectorClickHandler={this.closeEditorSelectorClickHandler}
           component={
             <PhotoshopPicker
               color={this.state.selectedColor}
