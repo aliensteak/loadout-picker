@@ -64,7 +64,13 @@ class AddLoadout extends React.Component {
           </div>
         </div>
         <div className='uk-card-body'>
-          <div>{this.state.loadouts}</div>
+          {this.state.loadouts.length === 0 ? (
+            <div className="uk-text-center">
+              <i>No Loadouts Available</i>
+            </div>
+          ) : (
+            <div>{this.state.loadouts}</div>
+          )}
 
           <div className='uk-margin uk-text-center'>
             <button
