@@ -20,6 +20,7 @@ code {
   transition-property: transform;
 }
 
+/* LoadoutInput */
 .close-icon:hover {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -31,4 +32,13 @@ code {
 
   transform: rotate(270deg);
   -webkit-transform: rotate(270deg);
+}
+
+/* Code Editor */
+.code-editor-text-area {
+  height: 100%;
+}
+
+.code-editor-pre-area {
+
 }

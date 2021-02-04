@@ -49,10 +49,13 @@ class CodeEditor extends React.Component {
               highlight={(code) => Prism.highlight(code, sqfGrammar)}
               padding={10}
               insertSpaces={true}
+              textareaClassName="code-editor-text-area"
+              preClassName="code-editor-pre-area"
               style={{
                 fontFamily:
                   "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
                 fontSize: 16,
+                height: '100%'
               }}
             />
           }
