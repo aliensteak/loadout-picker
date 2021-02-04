@@ -35,18 +35,7 @@ class CodeEditor extends React.Component {
           style={{ cursor: "pointer" }}
           onClick={() => this.setState({ codeEditorVisible: true })}
         >
-          <div
-            style={{
-              backgroundColor: this.state.selectedColor,
-              height: "22px",
-              width: "22px",
-              border: "1px solid #191919",
-              borderRadius: "5px",
-              margin: "1px 3px",
-            }}
-            className='uk-flex-bottom'
-          ></div>
-          <div>{this.state.selectedColor}</div>
+          <button className="uk-button" onClick={() => this.setState({ codeEditorVisible: true })}>Edit</button>
         </div>
 
         <FloatingBlock
