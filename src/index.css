@@ -39,5 +39,9 @@ code {
   -webkit-transform: rotate(270deg);
 }
 
+.auto-complete-div-width-fix > div {
+  width: 100%;
+}
+
 /* Code Editor */
 
