@@ -25,13 +25,14 @@ class LoadoutInput extends React.Component {
         { label: "Anti Tank Assistant" },
         { label: "Crew Chief" },
         { label: "Crewman" },
-      ]
+      ],
     }
 
     this.setParentState = this.setParentState.bind(this)
     this.loadoutDeleteClickHandler = this.loadoutDeleteClickHandler.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.updateParentInfo = this.updateParentInfo.bind(this)
+    this.onSelectClick = this.onSelectClick.bind(this)
   }
 
   updateParentInfo() {
@@ -62,6 +63,25 @@ class LoadoutInput extends React.Component {
     )
   }
 
+  onSelectClick(value) {
+    this.setState({ loadoutName: value }, this.updateParentInfo)
+  }
+
+  renderItemCallback(item, isHighlighted) {
+    return (
+      <div
+        key={Math.random()}
+        style={{
+          background: isHighlighted ? "lightgray" : "white",
+          padding: "10px",
+          cursor: "pointer",
+        }}
+      >
+        {item.label}
+      </div>
+    )
+  }
+
   loadoutDeleteClickHandler() {
     this.props.deleteLoadout(this.state.id)
   }
@@ -89,24 +109,14 @@ class LoadoutInput extends React.Component {
                   className: "uk-input",
                   placeholder: "Loadout Name",
                   name: "loadoutName",
-                  type: "text"
+                  type: "text",
                 }}
                 getItemValue={(item) => item.label}
                 items={this.state.loadoutTitles}
-                renderItem={(item, isHighlighted) => (
-                  <div
-                    style={{
-                      background: isHighlighted ? "lightgray" : "white",
-                      padding: '10px',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {item.label}
-                  </div>
-                )}
+                renderItem={this.renderItemCallback}
                 value={this.state.loadoutName}
                 onChange={this.handleChange}
-                onSelect={(value) => this.setState({ loadoutName: value })}
+                onSelect={this.onSelectClick}
               />
             </div>
           </div>

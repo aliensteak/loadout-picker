@@ -38,6 +38,8 @@ class App extends React.Component {
 
         <AddLoadout updateAppLoadout={this.updateAppLoadout} />
 
+        <button onClick={() => console.log(this.state.loadouts)}>Click me</button>
+
         <pre>{JSON.stringify(this.state.projectName)}</pre>
         <pre>{JSON.stringify(this.state.side)}</pre>
         <pre>{JSON.stringify(this.state.loadouts)}</pre>
