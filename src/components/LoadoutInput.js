@@ -8,12 +8,27 @@ class LoadoutInput extends React.Component {
 
     this.state = {
       id: this.props.id,
+      loadoutName: "",
       loadoutCode: "",
       color: this.props.defaultColor
     }
 
     this.setParentState = this.setParentState.bind(this)
     this.loadoutDeleteClickHandler = this.loadoutDeleteClickHandler.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.updateParentInfo = this.updateParentInfo.bind(this)
+  }
+
+  updateParentInfo() {
+    // update parent state loadout info
+    const object = {
+      id: this.state.id,
+      name: this.state.loadoutName,
+      code: this.state.loadoutCode,
+      color: this.state.color
+    }
+
+    this.props.updateLoadout(object)
   }
 
   setParentState(name, value) {
@@ -23,6 +38,14 @@ class LoadoutInput extends React.Component {
     if (name === 'color') {
       this.props.setParentState('defaultColor', value)
     }
+
+    this.updateParentInfo()
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
+
+    this.updateParentInfo()
   }
 
   loadoutDeleteClickHandler() {
@@ -43,7 +66,7 @@ class LoadoutInput extends React.Component {
             <div className="uk-background-default uk-margin-small-right uk-padding-small uk-flex uk-height-1-1 uk-flex-middle">
               <label className="uk-text-bold">Code</label>
 
-              <CodeEditor />
+              <CodeEditor setParentState={this.setParentState}/>
             </div>
           </div>
 

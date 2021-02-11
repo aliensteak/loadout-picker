@@ -9,16 +9,34 @@ class AddLoadout extends React.Component {
     this.state = {
       defaultColor: "#ffffff",
       loadoutsJSX: [],
+      loadouts: {},
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.addLoadoutClickHandler = this.addLoadoutClickHandler.bind(this)
     this.setParentState = this.setParentState.bind(this)
     this.deleteLoadout = this.deleteLoadout.bind(this)
+    this.updateLoadout = this.updateLoadout.bind(this)
   }
 
   handleChange(event) {
     this.props.setParentState(event.target.name, event.target.value)
+  }
+
+  updateLoadout(loadout) {
+    console.log('loadout: ', loadout);
+    this.setState((prevState) => {
+      const prevLoadouts = prevState.loadouts
+
+      prevLoadouts[loadout.id] = {
+        id: loadout.id,
+        name: loadout.name,
+        code: loadout.code,
+        color: loadout.color
+      }
+
+      return { loadouts: prevLoadouts }
+    })
   }
 
   setParentState(name, value) {
@@ -47,6 +65,7 @@ class AddLoadout extends React.Component {
             deleteLoadout={this.deleteLoadout}
             setParentState={this.setParentState}
             defaultColor={prevState.defaultColor}
+            updateLoadout={this.updateLoadout}
           />,
         ],
       }
@@ -80,6 +99,8 @@ class AddLoadout extends React.Component {
               Add Loadout
             </button>
           </div>
+
+          <pre>{ JSON.stringify(this.state.loadouts) }</pre>
         </div>
       </div>
     )

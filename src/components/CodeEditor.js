@@ -15,16 +15,17 @@ class CodeEditor extends React.Component {
       codeEditorVisible: false,
     }
 
-    this.colorPicked = this.colorPicked.bind(this)
+    this.codeSaved = this.codeSaved.bind(this)
     this.closeEditorSelectorClickHandler = this.closeEditorSelectorClickHandler.bind(this)
+  }
+
+  codeSaved(code) {
+    this.props.setParentState('loadoutCode', code)
+    this.setState({ code })
   }
 
   closeEditorSelectorClickHandler() {
     this.setState({ codeEditorVisible: false })
-  }
-
-  colorPicked(color, event) {
-    this.setState({ selectedColor: color.hex })
   }
 
   render() {
@@ -45,7 +46,7 @@ class CodeEditor extends React.Component {
           component={
             <Editor
               value={this.state.code}
-              onValueChange={(code) => this.setState({ code })}
+              onValueChange={(code) => this.codeSaved(code)}
               highlight={(code) => Prism.highlight(code, sqfGrammar)}
               padding={10}
               insertSpaces={true}
