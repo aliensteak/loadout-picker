@@ -25,8 +25,8 @@ class ProjectName extends React.Component {
             <small>This name will be used to create the name of the sqf file</small>
           </div>
           <div className="uk-width-1-6">
-            <select className="uk-select" name="side" onChange={this.handleChange}>
-              <option disabled={true} defaultValue={true}>Faction</option>
+            <select className="uk-select" name="side" onChange={this.handleChange} defaultValue="Faction">
+              <option disabled={true}>Faction</option>
               <option>West</option>
               <option>East</option>
               <option>Independent</option>
