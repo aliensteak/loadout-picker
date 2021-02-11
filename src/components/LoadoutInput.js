@@ -82,6 +82,16 @@ class LoadoutInput extends React.Component {
     )
   }
 
+  shouldItemRenderCallback(item, value) {
+    const suggestions = item.label
+    const inputValue = value.trim().toLowerCase()
+    const inputLength = inputValue.length
+
+    return inputLength === 0
+      ? false
+      : suggestions.toLowerCase().slice(0, inputLength) === inputValue
+  }
+
   loadoutDeleteClickHandler() {
     this.props.deleteLoadout(this.state.id)
   }
@@ -114,6 +124,7 @@ class LoadoutInput extends React.Component {
                 getItemValue={(item) => item.label}
                 items={this.state.loadoutTitles}
                 renderItem={this.renderItemCallback}
+                shouldItemRender={this.shouldItemRenderCallback}
                 value={this.state.loadoutName}
                 onChange={this.handleChange}
                 onSelect={this.onSelectClick}
