@@ -38,10 +38,3 @@ code {
   transform: rotate(270deg);
   -webkit-transform: rotate(270deg);
 }
-
-.auto-complete-div-width-fix > div {
-  width: 100%;
-}
-
-/* Code Editor */
-
