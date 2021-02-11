@@ -31,11 +31,11 @@ class AddLoadout extends React.Component {
         id: loadout.id,
         name: loadout.name,
         code: loadout.code,
-        color: loadout.color
+        color: loadout.color,
       }
 
       return { loadouts: prevLoadouts }
-    })
+    }, this.props.updateAppLoadout(this.state.loadouts))
   }
 
   setParentState(name, value) {
@@ -54,7 +54,7 @@ class AddLoadout extends React.Component {
       delete loadouts[id]
 
       return { loadoutsJSX: loadoutsJSX, loadouts: loadouts }
-    })
+    }, this.props.updateAppLoadout(this.state.loadouts))
   }
 
   addLoadoutClickHandler() {
@@ -88,7 +88,7 @@ class AddLoadout extends React.Component {
         </div>
         <div className='uk-card-body'>
           {this.state.loadoutsJSX.length === 0 ? (
-            <div className="uk-text-center">
+            <div className='uk-text-center'>
               <i>No Loadouts Available</i>
             </div>
           ) : (
@@ -103,8 +103,6 @@ class AddLoadout extends React.Component {
               Add Loadout
             </button>
           </div>
-
-          <pre>{ JSON.stringify(this.state.loadouts) }</pre>
         </div>
       </div>
     )
