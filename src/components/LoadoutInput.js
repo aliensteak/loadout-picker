@@ -1,8 +1,7 @@
 import React from "react"
+import AutoComplete from "./AutoComplete"
 import CodeEditor from "./CodeEditor"
 import ColorPicker from "./ColorPicker"
-
-import Autocomplete from "react-autocomplete"
 
 class LoadoutInput extends React.Component {
   constructor(props) {
@@ -13,26 +12,11 @@ class LoadoutInput extends React.Component {
       loadoutName: "",
       loadoutCode: "",
       color: this.props.defaultColor,
-      loadoutTitles: [
-        { label: "Squad Leader" },
-        { label: "Team Leader" },
-        { label: "Auto Rifleman" },
-        { label: "Assistant Auto Rifleman" },
-        { label: "Medic" },
-        { label: "Rifleman AT" },
-        { label: "Rifleman Light AT" },
-        { label: "Anti Tank" },
-        { label: "Anti Tank Assistant" },
-        { label: "Crew Chief" },
-        { label: "Crewman" },
-      ],
     }
 
     this.setParentState = this.setParentState.bind(this)
     this.loadoutDeleteClickHandler = this.loadoutDeleteClickHandler.bind(this)
-    this.handleChange = this.handleChange.bind(this)
     this.updateParentInfo = this.updateParentInfo.bind(this)
-    this.onSelectClick = this.onSelectClick.bind(this)
   }
 
   updateParentInfo() {
@@ -56,41 +40,6 @@ class LoadoutInput extends React.Component {
     }
   }
 
-  handleChange(event) {
-    this.setState(
-      { [event.target.name]: event.target.value },
-      this.updateParentInfo
-    )
-  }
-
-  onSelectClick(value) {
-    this.setState({ loadoutName: value }, this.updateParentInfo)
-  }
-
-  renderItemCallback(item, isHighlighted) {
-    return (
-      <div
-        key={Math.random()}
-        style={{
-          background: isHighlighted ? "lightgray" : "white",
-          padding: "10px",
-          cursor: "pointer",
-        }}
-      >
-        {item.label}
-      </div>
-    )
-  }
-
-  shouldItemRenderCallback(item, value) {
-    const suggestions = item.label
-    const inputValue = value.trim().toLowerCase()
-    const inputLength = inputValue.length
-
-    return inputLength === 0
-      ? false
-      : suggestions.toLowerCase().indexOf(inputValue) !== -1
-  }
 
   loadoutDeleteClickHandler() {
     this.props.deleteLoadout(this.state.id)
@@ -105,21 +54,7 @@ class LoadoutInput extends React.Component {
         >
           <div className='uk-width-2-3'>
             <div className='uk-background-default uk-margin-small-right uk-padding-small uk-flex auto-complete-div-width-fix'>
-              <Autocomplete
-                inputProps={{
-                  className: "uk-input",
-                  placeholder: "Loadout Name",
-                  name: "loadoutName",
-                  type: "text",
-                }}
-                getItemValue={(item) => item.label}
-                items={this.state.loadoutTitles}
-                renderItem={this.renderItemCallback}
-                shouldItemRender={this.shouldItemRenderCallback}
-                value={this.state.loadoutName}
-                onChange={this.handleChange}
-                onSelect={this.onSelectClick}
-              />
+              <AutoComplete setParentState={this.setParentState} />
             </div>
           </div>
 
