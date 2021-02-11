@@ -7,10 +7,16 @@ class App extends React.Component {
 
     this.state = {
       projectName: "",
-      side: ""
+      side: "",
+      loadouts: {}
     }
 
     this.setParentState = this.setParentState.bind(this)
+    this.updateAppLoadout = this.updateAppLoadout.bind(this)
+  }
+
+  updateAppLoadout(loadouts) {
+    this.setState({ loadouts })
   }
 
   setParentState(property, value) {
@@ -26,7 +32,11 @@ class App extends React.Component {
 
         <ProjectName setParentState={this.setParentState} />
 
-        <AddLoadout />
+        <AddLoadout updateAppLoadout={this.updateAppLoadout} />
+
+        <pre>{ JSON.stringify(this.state.projectName) }</pre>
+        <pre>{ JSON.stringify(this.state.side) }</pre>
+        <pre>{ JSON.stringify(this.state.loadouts) }</pre>
       </div>
     )
   }
