@@ -8,7 +8,7 @@ class AddLoadout extends React.Component {
 
     this.state = {
       defaultColor: "#ffffff",
-      loadouts: [],
+      loadoutsJSX: [],
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -27,11 +27,11 @@ class AddLoadout extends React.Component {
 
   deleteLoadout(id) {
     this.setState((prevState) => {
-      const loadouts = prevState.loadouts
-        .filter((loadout) => parseInt(loadout.key) !== id)
-        .map((loadout) => loadout)
+      const loadoutsJSX = prevState.loadoutsJSX
+        .filter((loadoutsJSX) => parseInt(loadoutsJSX.key) !== id)
+        .map((loadoutsJSX) => loadoutsJSX)
 
-      return { loadouts: loadouts }
+      return { loadoutsJSX: loadoutsJSX }
     })
   }
 
@@ -39,8 +39,8 @@ class AddLoadout extends React.Component {
     this.setState((prevState) => {
       const id = new Date().getTime()
       return {
-        loadouts: [
-          ...prevState.loadouts,
+        loadoutsJSX: [
+          ...prevState.loadoutsJSX,
           <LoadoutInput
             key={id}
             id={id}
@@ -64,12 +64,12 @@ class AddLoadout extends React.Component {
           </div>
         </div>
         <div className='uk-card-body'>
-          {this.state.loadouts.length === 0 ? (
+          {this.state.loadoutsJSX.length === 0 ? (
             <div className="uk-text-center">
               <i>No Loadouts Available</i>
             </div>
           ) : (
-            <div>{this.state.loadouts}</div>
+            <div>{this.state.loadoutsJSX}</div>
           )}
 
           <div className='uk-margin uk-text-center'>
