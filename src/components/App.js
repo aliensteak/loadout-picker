@@ -6,7 +6,8 @@ class App extends React.Component {
     super()
 
     this.state = {
-      projectName: ""
+      projectName: "",
+      side: ""
     }
 
     this.setParentState = this.setParentState.bind(this)
