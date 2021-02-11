@@ -89,7 +89,7 @@ class LoadoutInput extends React.Component {
 
     return inputLength === 0
       ? false
-      : suggestions.toLowerCase().slice(0, inputLength) === inputValue
+      : suggestions.toLowerCase().indexOf(inputValue) !== -1
   }
 
   loadoutDeleteClickHandler() {
