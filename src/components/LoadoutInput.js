@@ -32,20 +32,16 @@ class LoadoutInput extends React.Component {
   }
 
   setParentState(name, value) {
-    this.setState({ [name]: value })
+    this.setState({ [name]: value }, this.updateParentInfo)
 
     // special case to edit default color value
     if (name === 'color') {
       this.props.setParentState('defaultColor', value)
     }
-
-    this.updateParentInfo()
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value })
-
-    this.updateParentInfo()
+    this.setState({ [event.target.name]: event.target.value }, this.updateParentInfo)
   }
 
   loadoutDeleteClickHandler() {

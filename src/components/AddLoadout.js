@@ -24,7 +24,6 @@ class AddLoadout extends React.Component {
   }
 
   updateLoadout(loadout) {
-    console.log('loadout: ', loadout);
     this.setState((prevState) => {
       const prevLoadouts = prevState.loadouts
 

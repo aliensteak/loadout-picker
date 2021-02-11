@@ -20,12 +20,12 @@ class CodeEditor extends React.Component {
   }
 
   codeSaved(code) {
-    this.props.setParentState('loadoutCode', code)
     this.setState({ code })
   }
 
   closeEditorSelectorClickHandler() {
     this.setState({ codeEditorVisible: false })
+    this.props.setParentState('loadoutCode', this.state.code)
   }
 
   render() {
