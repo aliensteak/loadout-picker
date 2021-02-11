@@ -105,15 +105,6 @@ class LoadoutInput extends React.Component {
         >
           <div className='uk-width-2-3'>
             <div className='uk-background-default uk-margin-small-right uk-padding-small uk-flex auto-complete-div-width-fix'>
-              {/* <input
-                className='uk-input'
-                type='text'
-                placeholder='Loadout Name'
-                name='loadoutName'
-                onChange={this.handleChange}
-                value={this.state.loadoutName}
-              /> */}
-
               <Autocomplete
                 inputProps={{
                   className: "uk-input",
