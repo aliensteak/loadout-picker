@@ -44,11 +44,16 @@ class AddLoadout extends React.Component {
 
   deleteLoadout(id) {
     this.setState((prevState) => {
+      // remove loadout from ui
       const loadoutsJSX = prevState.loadoutsJSX
         .filter((loadoutsJSX) => parseInt(loadoutsJSX.key) !== id)
         .map((loadoutsJSX) => loadoutsJSX)
 
-      return { loadoutsJSX: loadoutsJSX }
+      // remove loadout from data
+      const loadouts = prevState.loadouts
+      delete loadouts[id]
+
+      return { loadoutsJSX: loadoutsJSX, loadouts: loadouts }
     })
   }
 
