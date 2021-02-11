@@ -1,5 +1,6 @@
 import React from "react"
 import AddLoadout from "./AddLoadout"
+import GenerateCode from "./GenerateCode"
 import ProjectName from "./ProjectName"
 
 class App extends React.Component {
@@ -25,6 +26,12 @@ class App extends React.Component {
   }
 
   render() {
+    const projectData = {
+      projectName: this.state.projectName,
+      side: this.state.side,
+      loadouts: this.state.loadouts
+    }
+
     return (
       <div className='uk-container-large uk-padding-large'>
         <div
@@ -38,11 +45,7 @@ class App extends React.Component {
 
         <AddLoadout updateAppLoadout={this.updateAppLoadout} />
 
-        <button onClick={() => console.log(this.state.loadouts)}>Click me</button>
-
-        <pre>{JSON.stringify(this.state.projectName)}</pre>
-        <pre>{JSON.stringify(this.state.side)}</pre>
-        <pre>{JSON.stringify(this.state.loadouts)}</pre>
+        <GenerateCode projectData={projectData} />
       </div>
     )
   }
