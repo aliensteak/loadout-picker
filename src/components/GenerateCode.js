@@ -212,7 +212,7 @@ class GenerateCode extends Component {
                 <pre>{this.state.initCode}</pre>
               </div>
 
-              <SqfCode sqfCode={this.state.sqfCode} />
+              <SqfCode sqfCode={this.state.sqfCode} fileName={this.state.fileName} />
             </div>
           ) : null}
         </div>
