@@ -137,7 +137,24 @@ class GenerateCode extends Component {
    * @param {String} data
    */
   generateInitCode(data) {
+    let initCode = ""
 
+    // add action for each loadout
+    let caseIndex = 0
+    for (const loadoutId in data.loadouts) {
+      const roleColor = data.loadouts[loadoutId].color
+      const roleName = data.loadouts[loadoutId].name
+
+      let fileName = this.props.projectData.projectName
+      fileName = fileName === "" ? "" : fileName.split(' ').map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(' ')
+      fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
+
+      initCode += `this addAction ["<t color='${roleColor}'>${roleName}</t>", "${fileName}", [${caseIndex}], 6, false, true, "", ""];\n`
+
+      caseIndex++
+    }
+
+    return initCode
   }
 
   generateCodeClickHandler() {
