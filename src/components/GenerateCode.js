@@ -5,8 +5,9 @@ class GenerateCode extends Component {
     super(props)
 
     this.state = {
+      codeGenerated: false,
       sqfCode: "No Data Found",
-      initCode: "No Data Found"
+      initCode: "No Data Found",
     }
 
     this.generateCodeClickHandler = this.generateCodeClickHandler.bind(this)
@@ -69,7 +70,9 @@ class GenerateCode extends Component {
 
     // add all blocks to a loadout string
     let loadoutContainer =
-      '\t\tcomment "Loadout for ' + roleName + ' created by ' +
+      '\t\tcomment "Loadout for ' +
+      roleName +
+      " created by " +
       loadoutAuthor +
       '";\n' +
       '\t\tcomment "Note: This is a machine generated loadout file";\n\n'
@@ -79,8 +82,7 @@ class GenerateCode extends Component {
     loadoutContainer += "\t\t" + block4 + "\n\n"
     loadoutContainer += "\t\t" + block5 + "\n\n"
 
-    loadoutContainer +=
-      '\t\thintSilent "Loadout Selected - Squad/Teamlead";\n'
+    loadoutContainer += '\t\thintSilent "Loadout Selected - Squad/Teamlead";\n'
 
     return loadoutContainer
   }
@@ -93,24 +95,27 @@ class GenerateCode extends Component {
   generateSqfCode(data) {
     let loadoutSqfCode = ""
 
+    // if no loadouts are present, then skip function
+    if (Object.keys(data.loadouts).length === 0) return "No Loadouts Added"
+
     // if side is selected, then add code to switch sides
     if (data.side) {
-      let faction;
+      let faction
       if (data.side === "West") faction = "west"
       else if (data.side === "East") faction = "east"
       else if (data.side === "Independent") faction = "resistance"
 
       loadoutSqfCode += 'comment "Change player side to ' + data.side + '";\n'
-      loadoutSqfCode += 'private _player = player;\n'
-      loadoutSqfCode += '[player] join createGroup ' + faction + ';\n'
-      loadoutSqfCode += 'selectNoPlayer;\n'
-      loadoutSqfCode += 'selectPlayer _player;\n\n'
+      loadoutSqfCode += "private _player = player;\n"
+      loadoutSqfCode += "[player] join createGroup " + faction + ";\n"
+      loadoutSqfCode += "selectNoPlayer;\n"
+      loadoutSqfCode += "selectPlayer _player;\n\n"
     }
 
     // add code for switch cases
     loadoutSqfCode += 'comment "Select loadout";\n'
-    loadoutSqfCode += '_loadout = (_this select 3) select 0;\n'
-    loadoutSqfCode += 'switch (_loadout) do {\n'
+    loadoutSqfCode += "_loadout = (_this select 3) select 0;\n"
+    loadoutSqfCode += "switch (_loadout) do {\n"
 
     // add case for each loadout
     let caseIndex = 0
@@ -118,15 +123,15 @@ class GenerateCode extends Component {
       const loadout = data.loadouts[loadoutId].code
       const roleName = data.loadouts[loadoutId].name
 
-      loadoutSqfCode += '\tcase ' + caseIndex + ': {\n'
+      loadoutSqfCode += "\tcase " + caseIndex + ": {\n"
       loadoutSqfCode += this.getProcessedCode(loadout, roleName)
-      loadoutSqfCode += '\t};\n\n'
+      loadoutSqfCode += "\t};\n\n"
 
       caseIndex++
     }
 
     // close switch case
-    loadoutSqfCode += '};'
+    loadoutSqfCode += "};"
 
     return loadoutSqfCode
   }
@@ -139,6 +144,9 @@ class GenerateCode extends Component {
   generateInitCode(data) {
     let initCode = ""
 
+    // if no loadouts are present, then skip function
+    if (Object.keys(data.loadouts).length === 0) return "No Loadouts Added"
+
     // add action for each loadout
     let caseIndex = 0
     for (const loadoutId in data.loadouts) {
@@ -146,7 +154,13 @@ class GenerateCode extends Component {
       const roleName = data.loadouts[loadoutId].name
 
       let fileName = this.props.projectData.projectName
-      fileName = fileName === "" ? "" : fileName.split(' ').map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(' ')
+      fileName =
+        fileName === ""
+          ? ""
+          : fileName
+              .split(" ")
+              .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
+              .join(" ")
       fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
 
       initCode += `this addAction ["<t color='${roleColor}'>${roleName}</t>", "${fileName}", [${caseIndex}], 6, false, true, "", ""];\n`
@@ -160,7 +174,11 @@ class GenerateCode extends Component {
   generateCodeClickHandler() {
     const data = this.props.projectData
 
-    this.setState({ sqfCode: this.generateSqfCode(data), initCode: this.generateInitCode(data) })
+    this.setState({
+      codeGenerated: true,
+      sqfCode: this.generateSqfCode(data),
+      initCode: this.generateInitCode(data),
+    })
   }
 
   render() {
@@ -183,17 +201,15 @@ class GenerateCode extends Component {
             </button>
           </div>
 
-          <div className='uk-margin-bottom'>
-            <pre>
-              {this.state.sqfCode}
-            </pre>
+          {this.state.codeGenerated ? (
+            <div className='uk-margin-bottom uk-animation-slide-top-medium'>
+              <pre>{this.state.initCode}</pre>
 
-            <br />
+              <br />
 
-            <pre>
-              {this.state.initCode}
-            </pre>
-          </div>
+              <pre>{this.state.sqfCode}</pre>
+            </div>
+          ) : null}
         </div>
       </div>
     )
