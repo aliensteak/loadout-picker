@@ -179,11 +179,12 @@ class GenerateCode extends Component {
             .join(" ")
     fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
 
-    this.setState({
-      codeGenerated: true,
-      sqfCode: this.generateSqfCode(data),
-      initCode: this.generateInitCode(data),
-      fileName: fileName
+    this.setState({ fileName }, () => {
+      this.setState({
+        codeGenerated: true,
+        sqfCode: this.generateSqfCode(data),
+        initCode: this.generateInitCode(data)
+      })
     })
   }
 
