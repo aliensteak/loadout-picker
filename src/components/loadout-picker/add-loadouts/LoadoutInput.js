@@ -1,7 +1,7 @@
 import React from "react"
-import AutoComplete from "./AutoComplete"
-import CodeEditor from "./CodeEditor"
-import ColorPicker from "./ColorPicker"
+import AutoComplete from "./loadout-inputs/AutoComplete"
+import CodeEditor from "./loadout-inputs/CodeEditor"
+import ColorPicker from "./loadout-inputs/ColorPicker"
 
 class LoadoutInput extends React.Component {
   constructor(props) {

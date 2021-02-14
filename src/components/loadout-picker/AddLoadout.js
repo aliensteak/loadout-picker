@@ -1,6 +1,6 @@
 import React from "react"
 
-import LoadoutInput from "./LoadoutInput"
+import LoadoutInput from "./add-loadouts/LoadoutInput"
 
 class AddLoadout extends React.Component {
   constructor() {

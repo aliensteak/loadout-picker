@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SqfCode from "./SqfCode"
+import SqfCode from "./generate-code/SqfCode"
 
 class GenerateCode extends Component {
   constructor(props) {

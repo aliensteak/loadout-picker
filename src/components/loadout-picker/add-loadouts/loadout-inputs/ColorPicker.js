@@ -1,6 +1,6 @@
 import React from "react"
 import { PhotoshopPicker } from "react-color"
-import FloatingBlock from "./FloatingBlock"
+import FloatingBlock from "./color-picker/FloatingBlock"
 
 class ColorPicker extends React.Component {
   constructor(props) {

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import LoadoutPicker from './components/LoadoutPicker';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LoadoutPicker />
   </React.StrictMode>,
   document.getElementById('root')
 );

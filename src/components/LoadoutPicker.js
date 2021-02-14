@@ -1,9 +1,9 @@
 import React from "react"
-import AddLoadout from "./AddLoadout"
-import GenerateCode from "./GenerateCode"
-import ProjectName from "./ProjectName"
+import AddLoadout from "./loadout-picker/AddLoadout"
+import GenerateCode from "./loadout-picker/GenerateCode"
+import ProjectName from "./loadout-picker/ProjectName"
 
-class App extends React.Component {
+class LoadoutPicker extends React.Component {
   constructor() {
     super()
 
@@ -51,4 +51,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default LoadoutPicker

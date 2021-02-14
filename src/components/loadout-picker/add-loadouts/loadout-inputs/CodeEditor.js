@@ -1,10 +1,11 @@
 import React from "react"
 import Editor from "react-simple-code-editor"
-import Prism from "prismjs"
-import FloatingBlock from "./FloatingBlock"
-import sqfGrammar from './AddSqf'
 
-import "./prism.css"
+import Prism from "prismjs"
+import FloatingBlock from "./color-picker/FloatingBlock"
+import sqfGrammar from './code-editor/AddSqf'
+
+import "./code-editor/prism.css"
 
 class CodeEditor extends React.Component {
   constructor(props) {
