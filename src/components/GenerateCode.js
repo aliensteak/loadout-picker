@@ -9,6 +9,7 @@ class GenerateCode extends Component {
       codeGenerated: false,
       sqfCode: "No Data Found",
       initCode: "No Data Found",
+      fileName: "",
     }
 
     this.generateCodeClickHandler = this.generateCodeClickHandler.bind(this)
@@ -148,21 +149,23 @@ class GenerateCode extends Component {
     // if no loadouts are present, then skip function
     if (Object.keys(data.loadouts).length === 0) return "No Loadouts Added"
 
+    // generate file name and save it
+    let fileName = this.props.projectData.projectName
+    fileName =
+      fileName === ""
+        ? ""
+        : fileName
+            .split(" ")
+            .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
+            .join(" ")
+    fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
+    this.setState({ fileName })
+
     // add action for each loadout
     let caseIndex = 0
     for (const loadoutId in data.loadouts) {
       const roleColor = data.loadouts[loadoutId].color
       const roleName = data.loadouts[loadoutId].name
-
-      let fileName = this.props.projectData.projectName
-      fileName =
-        fileName === ""
-          ? ""
-          : fileName
-              .split(" ")
-              .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
-              .join(" ")
-      fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
 
       initCode += `this addAction ["<t color='${roleColor}'>${roleName}</t>", "${fileName}", [${caseIndex}], 6, false, true, "", ""];\n`
 
