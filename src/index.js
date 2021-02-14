@@ -22,11 +22,15 @@ ReactDOM.render(
         <Route exact path="/loadout-picker">
           <LoadoutPicker />
         </Route>
-        <Route exact path="/about">
-          <h1>About</h1>
+        <Route exact path="/loadout-picker/about">
+          <div className="uk-text-center">
+            <h3>WIP - About Page</h3>
+          </div>
         </Route>
-        <Route exact path="/how-to">
-          <h1>How-To</h1>
+        <Route exact path="/loadout-picker/how-to">
+        <div className="uk-text-center">
+            <h3>WIP - How-To</h3>
+          </div>
         </Route>
       </Switch>
     </Router>
