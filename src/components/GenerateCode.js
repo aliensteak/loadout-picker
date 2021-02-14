@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import SqfCode from "./SqfCode"
 
 class GenerateCode extends Component {
   constructor(props) {
@@ -203,11 +204,12 @@ class GenerateCode extends Component {
 
           {this.state.codeGenerated ? (
             <div className='uk-margin-bottom uk-animation-slide-top-medium'>
-              <pre>{this.state.initCode}</pre>
+              <div>
+                <h5>Init Code</h5>
+                <pre>{this.state.initCode}</pre>
+              </div>
 
-              <br />
-
-              <pre>{this.state.sqfCode}</pre>
+              <SqfCode sqfCode={this.state.sqfCode} />
             </div>
           ) : null}
         </div>
