@@ -1,6 +1,5 @@
 import React from "react"
 
-import Navbar from "./loadout-picker/Navbar"
 import AddLoadout from "./loadout-picker/AddLoadout"
 import GenerateCode from "./loadout-picker/GenerateCode"
 import ProjectName from "./loadout-picker/ProjectName"
@@ -35,24 +34,20 @@ class LoadoutPicker extends React.Component {
     }
 
     return (
-      <React.Fragment>
-        <Navbar />
-
-        <div className='uk-container-large uk-padding-large uk-padding-remove-top'>
-          <div
-            className='uk-alert-warning uk-padding-small uk-margin-medium-bottom uk-text-center'
-            style={{ border: "1px solid orange" }}
-          >
-            NOTE: This project is currently WIP
-          </div>
-
-          <ProjectName setParentState={this.setParentState} />
-
-          <AddLoadout updateAppLoadout={this.updateAppLoadout} />
-
-          <GenerateCode projectData={projectData} />
+      <div className='uk-container-large uk-padding-large uk-padding-remove-top'>
+        <div
+          className='uk-alert-warning uk-padding-small uk-margin-medium-bottom uk-text-center'
+          style={{ border: "1px solid orange" }}
+        >
+          NOTE: This project is currently WIP
         </div>
-      </React.Fragment>
+
+        <ProjectName setParentState={this.setParentState} />
+
+        <AddLoadout updateAppLoadout={this.updateAppLoadout} />
+
+        <GenerateCode projectData={projectData} />
+      </div>
     )
   }
 }
