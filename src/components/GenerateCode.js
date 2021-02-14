@@ -5,12 +5,18 @@ class GenerateCode extends Component {
     super(props)
 
     this.state = {
-      code: "No Data Found",
+      sqfCode: "No Data Found",
     }
 
     this.generateCodeClickHandler = this.generateCodeClickHandler.bind(this)
   }
 
+  /**
+   * Takes in a block of code and adds two tabs in front of
+   * all the lines except for the first one.
+   *
+   * @param {String} string
+   */
   addTabs(string) {
     if (string.indexOf("\r") === -1)
       string = string.replaceAll(";\n", ";\n\t\t")
@@ -19,6 +25,13 @@ class GenerateCode extends Component {
     return string
   }
 
+  /**
+   * Takes BI Arsenal code as input and picks out essential snippets
+   * and makes it useable in a loadout picker
+   *
+   * @param {String} loadoutCode
+   * @param {String} roleName
+   */
   getProcessedCode(loadoutCode, roleName) {
     // split code based on blocks of code
     let loadout = loadoutCode.split("\n\n")
@@ -110,7 +123,7 @@ class GenerateCode extends Component {
     // close switch case
     loadoutSqfCode += '};'
 
-    this.setState({ code: loadoutSqfCode })
+    this.setState({ sqfCode: loadoutSqfCode })
   }
 
   render() {
@@ -134,10 +147,8 @@ class GenerateCode extends Component {
           </div>
 
           <div className='uk-margin-bottom'>
-            <pre
-            // style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
-            >
-              {this.state.code}
+            <pre>
+              {this.state.sqfCode}
             </pre>
           </div>
         </div>
