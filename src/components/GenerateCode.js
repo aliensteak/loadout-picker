@@ -6,6 +6,7 @@ class GenerateCode extends Component {
 
     this.state = {
       sqfCode: "No Data Found",
+      initCode: "No Data Found"
     }
 
     this.generateCodeClickHandler = this.generateCodeClickHandler.bind(this)
@@ -84,8 +85,12 @@ class GenerateCode extends Component {
     return loadoutContainer
   }
 
-  generateCodeClickHandler() {
-    const data = this.props.projectData
+  /**
+   * Generates code for loadoutSqf file
+   *
+   * @param {String} data
+   */
+  generateSqfCode(data) {
     let loadoutSqfCode = ""
 
     // if side is selected, then add code to switch sides
@@ -123,7 +128,22 @@ class GenerateCode extends Component {
     // close switch case
     loadoutSqfCode += '};'
 
-    this.setState({ sqfCode: loadoutSqfCode })
+    return loadoutSqfCode
+  }
+
+  /**
+   * Generates code for in-game init property
+   *
+   * @param {String} data
+   */
+  generateInitCode(data) {
+
+  }
+
+  generateCodeClickHandler() {
+    const data = this.props.projectData
+
+    this.setState({ sqfCode: this.generateSqfCode(data), initCode: this.generateInitCode(data) })
   }
 
   render() {
@@ -149,6 +169,12 @@ class GenerateCode extends Component {
           <div className='uk-margin-bottom'>
             <pre>
               {this.state.sqfCode}
+            </pre>
+
+            <br />
+
+            <pre>
+              {this.state.initCode}
             </pre>
           </div>
         </div>
