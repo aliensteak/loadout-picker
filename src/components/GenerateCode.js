@@ -22,6 +22,8 @@ class GenerateCode extends Component {
    * @param {String} string
    */
   addTabs(string) {
+    if (! string) return ""
+
     if (string.indexOf("\r") === -1)
       string = string.replaceAll(";\n", ";\n\t\t")
     else string = string.replaceAll(";\r\n", ";\n\t\t")
