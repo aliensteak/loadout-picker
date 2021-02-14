@@ -13,6 +13,12 @@ class SqfCode extends Component {
     this.expandButtonClickHandler = this.expandButtonClickHandler.bind(this)
   }
 
+  componentDidUpdate() {
+    if (this.props.sqfCode === "No Loadouts Added" && this.state.isCodePresent !== false) {
+      this.setState({ isCodePresent: false })
+    }
+  }
+
   downloadClickHandler() {
     const element = document.createElement("a");
     const file = new Blob([this.props.sqfCode],
