@@ -65,11 +65,13 @@ class GenerateCode extends Component {
           '\t\tcomment "This is a machine generated loadout file. This loadout is created by ' +
           loadoutAuthor +
           '";\n\n'
-        loadoutContainer += "\t\t" + block1 + "\n\n"
-        loadoutContainer += "\t\t" + block2 + "\n\n"
-        loadoutContainer += "\t\t" + block3 + "\n\n"
-        loadoutContainer += "\t\t" + block4 + "\n\n"
-        loadoutContainer += "\t\t" + block5 + "\n\n"
+        loadoutContainer += '\t\t' + block1 + '\n\n'
+        loadoutContainer += '\t\t' + block2 + '\n\n'
+        loadoutContainer += '\t\t' + block3 + '\n\n'
+        loadoutContainer += '\t\t' + block4 + '\n\n'
+        loadoutContainer += '\t\t' + block5 + '\n\n'
+
+        loadoutContainer += '\t\thintSilent "Loadout Selected - Squad/Teamlead";'
 
         this.setState({ code: JSON.stringify(loadout, undefined, 2) })
         this.setState({ code: loadoutContainer })
