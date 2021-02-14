@@ -149,17 +149,7 @@ class GenerateCode extends Component {
     // if no loadouts are present, then skip function
     if (Object.keys(data.loadouts).length === 0) return "No Loadouts Added"
 
-    // generate file name and save it
-    let fileName = this.props.projectData.projectName
-    fileName =
-      fileName === ""
-        ? ""
-        : fileName
-            .split(" ")
-            .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
-            .join(" ")
-    fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
-    this.setState({ fileName })
+    const fileName = this.state.fileName
 
     // add action for each loadout
     let caseIndex = 0
@@ -178,10 +168,22 @@ class GenerateCode extends Component {
   generateCodeClickHandler() {
     const data = this.props.projectData
 
+    // generate file name and save it
+    let fileName = this.props.projectData.projectName
+    fileName =
+      fileName === ""
+        ? ""
+        : fileName
+            .split(" ")
+            .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
+            .join(" ")
+    fileName = "loadout" + fileName.replaceAll(" ", "") + ".sqf"
+
     this.setState({
       codeGenerated: true,
       sqfCode: this.generateSqfCode(data),
       initCode: this.generateInitCode(data),
+      fileName: fileName
     })
   }
 

@@ -9,7 +9,19 @@ class SqfCode extends Component {
       chevronStyle: {}
     }
 
+    this.downloadClickHandler = this.downloadClickHandler.bind(this)
     this.expandButtonClickHandler = this.expandButtonClickHandler.bind(this)
+  }
+
+  downloadClickHandler() {
+    const element = document.createElement("a");
+    const file = new Blob([this.props.sqfCode],
+                {type: 'text/plain;charset=utf-8'});
+    element.href = URL.createObjectURL(file);
+    element.download = this.props.fileName;
+    console.log('this.props.fileName: ', this.props.fileName);
+    document.body.appendChild(element);
+    element.click();
   }
 
   expandButtonClickHandler() {
@@ -26,14 +38,14 @@ class SqfCode extends Component {
     return (
       <div>
         <h5>Sqf Code</h5>
-        {this.state.isCodePresent ? (
+        {!this.state.isCodePresent ? (
           <pre>{this.props.sqfCode}</pre>
         ) : (
           <React.Fragment>
             <div className='uk-flex uk-flex-between'>
               <button
                 className='uk-button uk-button-primary'
-                onClick={() => console.log("Button Clicked")}
+                onClick={this.downloadClickHandler}
               >
                 Download Sqf File
               </button>
