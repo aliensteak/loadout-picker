@@ -18,11 +18,16 @@ code {
     monospace;
 }
 
-.close-icon {
-  padding: 5px;
+/* Page Switcher */
+.sub-page-container {
+  width: 300vw;
 
-  transition-duration: 0.8s;
-  transition-property: transform;
+  display: flex;
+  flex-direction: row;
+}
+
+.sub-page {
+  width: 100vw;
 }
 
 /* Navbar */
@@ -50,6 +55,13 @@ code {
 }
 
 /* LoadoutInput */
+.close-icon {
+  padding: 5px;
+
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
 .close-icon:hover {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
