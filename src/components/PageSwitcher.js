@@ -26,7 +26,9 @@ export default class PageSwitcher extends Component {
     this.state = {
       selectedTab: 1,
       containerStyles: {
-        height: 0
+        height: 0,
+        position: "relative",
+        left: -window.innerWidth
       }
     }
 
@@ -40,11 +42,18 @@ export default class PageSwitcher extends Component {
   }
 
   updateScreenSize() {
-    this.setState({ containerStyles: { height: window.innerHeight - 80 }})
+    this.setState((prevState) => {
+      return { containerStyles: { ...prevState.containerStyles, height: window.innerHeight - 80 }}
+    })
   }
 
   selectTab(selectedTab) {
-    this.setState({ selectedTab })
+    this.setState((prevState) => {
+      return {
+        selectedTab: selectedTab,
+        containerStyles: { ...prevState.containerStyles, left: (-100*selectedTab) + "vw" }
+      }
+    })
   }
 
   render() {

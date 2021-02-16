@@ -22,6 +22,9 @@ code {
 .sub-page-container {
   width: 300vw;
 
+  transition: left 300ms;
+  transition-timing-function: ease-in-out;
+
   display: flex;
   flex-direction: row;
 }
