@@ -1,39 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import PageSwitcher from './components/PageSwitcher';
 
 import './index.css';
-import Navbar from './components/Navbar'
-import LoadoutPicker from './components/LoadoutPicker';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar/>
-
-    <Router>
-      <Switch>
-        <Route exact path="/loadout-picker">
-          <LoadoutPicker />
-        </Route>
-        <Route exact path="/loadout-picker/about">
-          <div className="uk-text-center">
-            <h3>WIP - About Page</h3>
-          </div>
-        </Route>
-        <Route exact path="/loadout-picker/how-to">
-        <div className="uk-text-center">
-            <h3>WIP - How-To</h3>
-          </div>
-        </Route>
-      </Switch>
-    </Router>
+    <PageSwitcher />
   </React.StrictMode>,
   document.getElementById('root')
 );
