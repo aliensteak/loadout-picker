@@ -25,6 +25,30 @@ code {
   transition-property: transform;
 }
 
+/* Navbar */
+.navbar-center {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-center-left {
+  margin-left: auto;
+}
+
+.navbar-center-right {
+  margin-right: auto;
+}
+
+.navbar-item {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar-item:hover {
+  color: rgb(71, 71, 71);
+  transition: color 400ms;
+}
+
 /* LoadoutInput */
 .close-icon:hover {
   transform: rotate(180deg);
