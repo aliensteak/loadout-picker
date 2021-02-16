@@ -43,7 +43,7 @@ export default class PageSwitcher extends Component {
 
   updateScreenSize() {
     this.setState((prevState) => {
-      return { containerStyles: { ...prevState.containerStyles, height: window.innerHeight - 80 }}
+      return { containerStyles: { ...prevState.containerStyles, height: (window.innerHeight - 80) + "px" }}
     })
   }
 

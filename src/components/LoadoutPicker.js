@@ -34,7 +34,7 @@ class LoadoutPicker extends React.Component {
     }
 
     return (
-      <div className='uk-container-large uk-padding-large uk-padding-remove-top' style={{ overflow: "scroll", height: '100%' }}>
+      <div className='uk-container-large uk-padding-large' style={{ overflowX: "hidden", height: 'calc(100% - 60px)' }}>
         <div
           className='uk-alert-warning uk-padding-small uk-margin-medium-bottom uk-text-center'
           style={{ border: "1px solid orange" }}

@@ -18,12 +18,18 @@ code {
     monospace;
 }
 
+body {
+  overflow: hidden;
+}
+
 /* Page Switcher */
 .sub-page-container {
   width: 300vw;
 
   transition: left 300ms;
   transition-timing-function: ease-in-out;
+
+  overflow: hidden;
 
   display: flex;
   flex-direction: row;
