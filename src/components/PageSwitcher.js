@@ -43,8 +43,8 @@ export default class PageSwitcher extends Component {
     this.setState({ containerStyles: { height: window.innerHeight - 80 }})
   }
 
-  selectTab() {
-
+  selectTab(selectedTab) {
+    this.setState({ selectedTab })
   }
 
   render() {
