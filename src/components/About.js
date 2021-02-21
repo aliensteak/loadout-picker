@@ -23,7 +23,7 @@ function About() {
             <h4>About</h4>
             <hr/>
             <p>
-              Loadout Picker is a tool allows you to compile your exported BI Arsenal loadout into an auto-generated sqf code for a <code>.sqf</code> file and <code>init</code> to let a player use ArmA's context-menu/scroll-wheel on any object and pick a pre-made loadout.
+              Loadout Picker is a tool allows you to compile your exported BI Arsenal loadouts into an auto-generated sqf code for a <code>.sqf</code> file and <code>init</code> to let a player use ArmA's context-menu/scroll-wheel on any object and pick a pre-made loadout from a list of loadouts created by you.
             </p>
           </div>
           <br/>
@@ -31,7 +31,7 @@ function About() {
             <h4>Quirks</h4>
             <hr/>
             <p>
-              This tool lets you pick a faction when creating a script. It is useful when you have pre-made kits from multiple factions and want to play against opposing factions. The quirk is that it creates a new squad for each player who uses this script. So keep in mind that whenever a script generated from this tool is used, players will need to rejoin the squad or group.
+              This tool lets you pick a faction when creating a script. It is useful when you have pre-made kits from multiple factions and want to play against an opposing factions. The quirk is that it creates a new squad for each player who uses this script. So keep in mind that whenever a script generated from this tool is used, players will need to rejoin their squad or group.
             </p>
           </div>
         </div>

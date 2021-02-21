@@ -1,12 +1,10 @@
 import React from "react"
 import initScreenshot from "./how-to/init-screenshot.jpg"
-import rootDirectoryScreenshot from './how-to/root-directory.jpg'
+import rootDirectoryScreenshot from "./how-to/root-directory.jpg"
 
 export default function HowTo() {
   return (
-    <section
-      className='uk-container-large'
-    >
+    <section className='uk-container-large'>
       <div className='uk-card uk-card-default uk-width-expand uk-margin-top uk-margin-bottom'>
         <div className='uk-card-header'>
           <div className='uk-width-expand'>
@@ -20,8 +18,9 @@ export default function HowTo() {
             <p>
               Select a name for your project. This name is trivial as it is only
               used to create the name of the <code>.sqf</code> file.
-              <br/><br/>
-              This string is not escaped ( ͡° ͜ʖ ͡°).
+              <br />
+              <br />
+              Strings are not escaped ( ͡° ͜ʖ ͡°).
             </p>
           </div>
           <br />
@@ -41,7 +40,7 @@ export default function HowTo() {
             <hr />
             <p>Click "Add Loadout" button to add a loadout entry.</p>
             <p>
-              First, set a name for your loadout out. This field has an
+              First, set a name for your loadout. This field has an
               auto-complete for the most common loadouts. Note that you will
               have to press <code>Enter</code> to fill in the auto-complete
               value as <code>Tab</code> doesn't work and I couldn't be bothered
@@ -67,10 +66,10 @@ export default function HowTo() {
             </p>
             <p>
               Third, select a color or leave it default. This color will be used
-              for the context-menu items. Example, in the screenshot above each
-              entry has a color code of <code>#A60000</code>. Note that this
-              color will remain the same for all subsequent loadouts you add via
-              "Add Loadout" button.
+              for the context-menu items. Example, in the screenshot in the
+              "About" section, each entry has a color code of{" "}
+              <code>#A60000</code>. Note that this color will remain the same
+              for all subsequent loadouts you add via "Add Loadout" button.
             </p>
           </div>
           <br />
@@ -88,16 +87,16 @@ export default function HowTo() {
             />
             <p>
               Download the <code>.sqf</code> file from the "Sqf Code" section
-              and paste it in the root folder of you mission directory located at{" "}
+              and paste it in the root folder of you mission directory located
+              at -
               <pre>
                 <code>
                   This PC\Documents\Arma 3 - Other Profiles\{"{profile name}"}
                   \mpmissions\{"{mission name}"}.{"{map name}"}
                 </code>
               </pre>
-              and save the file there.
             </p>
-            <div className="uk-flex uk-flex-center">
+            <div className='uk-flex uk-flex-center'>
               <img
                 src={rootDirectoryScreenshot}
                 alt='screenshot of where to save init code file'
