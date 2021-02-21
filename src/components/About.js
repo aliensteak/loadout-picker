@@ -1,6 +1,5 @@
 import React from "react"
 import loadoutPickerScreenshot from "./about/loadout-selector.jpg"
-import style from "./about/About.module.css"
 
 function About() {
   return (
