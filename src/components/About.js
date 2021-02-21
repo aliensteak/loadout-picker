@@ -3,7 +3,7 @@ import loadoutPickerScreenshot from "./about/loadout-selector.jpg"
 
 function About() {
   return (
-    <section className='uk-container-large uk-padding-large' style={{ overflowX: "hidden", height: 'calc(100% - 60px)' }}>
+    <section className='uk-container-large'>
       <div className='uk-flex uk-flex-center uk-margin-top'>
         <div className='uk-inline'>
           <img

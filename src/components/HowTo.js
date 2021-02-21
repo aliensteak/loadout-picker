@@ -5,8 +5,7 @@ import rootDirectoryScreenshot from './how-to/root-directory.jpg'
 export default function HowTo() {
   return (
     <section
-      className='uk-container-large uk-padding-large'
-      style={{ overflowX: "hidden", height: "calc(100% - 60px)" }}
+      className='uk-container-large'
     >
       <div className='uk-card uk-card-default uk-width-expand uk-margin-top uk-margin-bottom'>
         <div className='uk-card-header'>

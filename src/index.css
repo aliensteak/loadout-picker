@@ -22,6 +22,12 @@ body {
   overflow: hidden;
 }
 
+section {
+  overflow-x: hidden;
+  height: calc(100% - 60px);
+  padding: 30px;
+}
+
 /* Page Switcher */
 .sub-page-container {
   width: 300vw;

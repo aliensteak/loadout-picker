@@ -34,7 +34,7 @@ class LoadoutPicker extends React.Component {
     }
 
     return (
-      <div className='uk-container-large uk-padding-large' style={{ overflowX: "hidden", height: 'calc(100% - 60px)' }}>
+      <section className='uk-container-large'>
         <div
           className='uk-alert-warning uk-padding-small uk-margin-medium-bottom uk-text-center'
           style={{ border: "1px solid orange" }}
@@ -47,7 +47,7 @@ class LoadoutPicker extends React.Component {
         <AddLoadout updateAppLoadout={this.updateAppLoadout} />
 
         <GenerateCode projectData={projectData} />
-      </div>
+      </section>
     )
   }
 }
