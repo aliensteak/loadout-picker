@@ -1,23 +1,9 @@
 import React, { Component } from "react"
 
 import Navbar from './Navbar'
-import LoadoutPicker from './LoadoutPicker';
-
-const About = () => {
-  return (
-    <div className="uk-text-center">
-      <h3>WIP - About Page</h3>
-    </div>
-  )
-}
-
-const HowTo = () => {
-  return (
-    <div className="uk-text-center">
-      <h3>WIP - How-To Page</h3>
-    </div>
-  )
-}
+import LoadoutPicker from './LoadoutPicker'
+import About from './About'
+import HowTo from './HowTo'
 
 export default class PageSwitcher extends Component {
   constructor(props) {
