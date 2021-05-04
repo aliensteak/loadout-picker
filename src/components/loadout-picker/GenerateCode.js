@@ -86,7 +86,7 @@ class GenerateCode extends Component {
     loadoutContainer += "\t\t" + block4 + "\n\n"
     loadoutContainer += "\t\t" + block5 + "\n\n"
 
-    loadoutContainer += '\t\thintSilent "Loadout Selected - Squad/Teamlead";\n'
+    loadoutContainer += '\t\thintSilent "Loadout Selected - ' + roleName + '";\n'
 
     return loadoutContainer
   }
