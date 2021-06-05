@@ -45,46 +45,43 @@ class GenerateCode extends Component {
     // if code is copied from google docs/ words then do this
     if (loadout.length === 1) loadout = loadoutCode.split("\r\n\r\n")
 
-    // index 0; loadout author comment
-    const block0 = loadout[0]
-    const loadoutAuthor = encodeURI(
-      block0
+    const blacklist = ["[!] UNIT MUST BE LOCAL [!]", "Set identity"]
+
+    loadout = loadout.map((item) => {
+      let loc = item.split("\n")
+
+      // if code is copied from google docs/ words then do this
+      if (loc.length === 1) loc = item.split("\r\n")
+
+      // clean comment
+      let blockDescriptor = loc[0].replace("comment \"", '')
+      blockDescriptor = blockDescriptor.replace("\";", "")
+
+      if (blacklist.includes(blockDescriptor)) {
+        return undefined
+      }
+
+      return item
+    }).filter(item => item)
+
+    const authorComment = loadout.shift() // index 0; loadout author comment
+    const newAuthorComment = encodeURI(
+      authorComment
         .replace(/(comment "Exported from Arsenal by )/g, "")
         .replace(/(";)/g, "")
     )
 
-    // index 1; unit local; ignore this block
-
-    // index 2; remove all gear
-    const block1 = this.addTabs(loadout[2]).replaceAll("this", "player")
-
-    // index 3; add weapons
-    const block2 = this.addTabs(loadout[3]).replaceAll("this", "player")
-
-    // index 4; add containers
-    const block3 = this.addTabs(loadout[4]).replaceAll("this", "player")
-
-    // index 5; add items in containers
-    const block4 = this.addTabs(loadout[5]).replaceAll("this", "player")
-
-    // index 6; add items
-    const block5 = this.addTabs(loadout[6]).replaceAll("this", "player")
-
-    // index 7; set identity; ignore this block
-
-    // add all blocks to a loadout string
     let loadoutContainer =
       '\t\tcomment "Loadout for ' +
       roleName +
       " created by " +
-      loadoutAuthor +
+      newAuthorComment +
       '";\n' +
       '\t\tcomment "Note: This is a machine generated loadout file";\n\n'
-    loadoutContainer += "\t\t" + block1 + "\n\n"
-    loadoutContainer += "\t\t" + block2 + "\n\n"
-    loadoutContainer += "\t\t" + block3 + "\n\n"
-    loadoutContainer += "\t\t" + block4 + "\n\n"
-    loadoutContainer += "\t\t" + block5 + "\n\n"
+
+    loadout.forEach((block) => {
+      loadoutContainer += "\t\t" + this.addTabs(block).replaceAll("this", "player") + "\n\n"
+    })
 
     loadoutContainer += '\t\thintSilent "Loadout Selected - ' + roleName + '";\n'
 
