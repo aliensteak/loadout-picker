@@ -34,7 +34,7 @@ class LoadoutPicker extends React.Component {
     }
 
     return (
-      <section className='uk-container-large'>
+      <section className='page-container'>
         <div
           className='uk-alert-warning uk-padding-small uk-margin-medium-bottom uk-text-center'
           style={{ border: "1px solid orange" }}

@@ -3,7 +3,7 @@ import loadoutPickerScreenshot from "./about/loadout-selector.jpg"
 
 function About() {
   return (
-    <section className='uk-container-large'>
+    <section className='page-container'>
       <div className='uk-flex uk-flex-center uk-margin-top'>
         <div className='uk-inline'>
           <img
