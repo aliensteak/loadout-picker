@@ -4,7 +4,7 @@ import rootDirectoryScreenshot from "./how-to/root-directory.jpg"
 
 export default function HowTo() {
   return (
-    <section className='uk-container-large'>
+    <section className='page-container'>
       <div className='uk-card uk-card-default uk-width-expand uk-margin-top uk-margin-bottom'>
         <div className='uk-card-header'>
           <div className='uk-width-expand'>

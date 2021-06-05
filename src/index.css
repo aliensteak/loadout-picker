@@ -29,6 +29,10 @@ section {
 }
 
 /* Page Switcher */
+.page-container {
+    max-width: 100vw;
+}
+
 .sub-page-container {
   width: 300vw;
 
