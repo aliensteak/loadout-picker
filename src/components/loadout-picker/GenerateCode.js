@@ -108,9 +108,11 @@ class GenerateCode extends Component {
 
       loadoutSqfCode += 'comment "Change player side to ' + data.side + '";\n'
       loadoutSqfCode += "private _player = player;\n"
-      loadoutSqfCode += "[player] join createGroup " + faction + ";\n"
-      loadoutSqfCode += "selectNoPlayer;\n"
-      loadoutSqfCode += "selectPlayer _player;\n\n"
+      loadoutSqfCode += "if (side _player != " + faction + ") then {\n"
+      loadoutSqfCode += "\t[player] join createGroup " + faction + ";\n"
+      loadoutSqfCode += "\tselectNoPlayer;\n"
+      loadoutSqfCode += "\tselectPlayer _player;\n\n"
+      loadoutSqfCode += "};\n"
     }
 
     // add code for switch cases
@@ -156,7 +158,7 @@ class GenerateCode extends Component {
       const roleColor = data.loadouts[loadoutId].color
       const roleName = data.loadouts[loadoutId].name
 
-      initCode += `this addAction ["<t color='${roleColor}'>${roleName}</t>", "${fileName}", [${caseIndex}], 6, false, true, "", ""];\n`
+      initCode += `this addAction ["<t color='${roleColor}'>${roleName}</t>", "${fileName}", [${caseIndex}], 6, false, true, "", "_this distance _target < 5"];\n`
 
       caseIndex++
     }
